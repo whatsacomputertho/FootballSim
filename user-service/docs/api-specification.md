@@ -1,17 +1,6 @@
 
 # FootballSim User Service
 
-## Log In
-
-- POST /api/v0/user/login/
-- Request Body
-  - **email**
-  - **password**
-- Response Body
-  - **status**
-  - **token**
-  - **message**
-
 ## Register
 
 - POST /api/v0/user/register/
@@ -20,16 +9,48 @@
   - **password**
 - Response Body
   - **status**
-  - **token**
+  - **refresh**
+  - **access**
   - **message**
 
-## Update Account
-- PUT /api/v0/user/update/
+## Log In
+
+- POST /api/v0/user/login/
 - Request Body
   - **email**
   - **password**
-  - **updated-email**
-  - **updated-password**
+- Response Body
+  - **status**
+  - **refresh**
+  - **access**
+  - **message**
+
+## Generate Access Token
+
+- POST /api/v0/user/generate/
+- Request Body
+  - **refresh**
+- Response Body
+  - **status**
+  - **access**
+  - **message**
+
+## Update Account
+
+- PUT /api/v0/user/update/
+- Request Body
+  - **access**
+  - **email**
+  - **password**
+- Response Body
+  - **status**
+  - **message**
+
+## Logout
+
+- PUT /api/v0/user/logout/
+- Request Body
+  - **access**
 - Response Body
   - **status**
   - **message**
@@ -38,8 +59,7 @@
 
 - PUT /api/v0/user/deactivate/
 - Request Body
-  - **email**
-  - **password**
+  - **access**
 - Response Body
   - **status**
   - **message**
